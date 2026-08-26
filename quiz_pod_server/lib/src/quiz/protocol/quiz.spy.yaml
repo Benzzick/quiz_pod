@@ -1,0 +1,9 @@
+
+class: Quiz
+table: quizes
+fields:
+    authorUserId: UuidValue
+    title: String
+    instructions: String
+    questions: List<QuizQuestion>
+

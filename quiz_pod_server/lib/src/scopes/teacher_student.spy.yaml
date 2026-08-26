@@ -1,0 +1,9 @@
+class: TeacherStudent
+table: teacher_student
+fields:
+  teacherUserId: UuidValue
+  studentUserId: UuidValue
+indexes:
+  teacher_student_unique_idx:
+    fields: teacherUserId, studentUserId
+    unique: true

@@ -1,0 +1,38 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "quiz_pod_flutter",
+            "cwd": "${workspaceFolder}/quiz_pod_flutter",
+            "request": "launch",
+            "type": "dart",
+            "program": "lib/main.dart"
+        },
+        {
+            "name": "quiz_pod_server",
+            "cwd": "${workspaceFolder}/quiz_pod_server",
+            "request": "launch",
+            "type": "dart",
+            "preLaunchTask": "docker_compose_up",
+            "program": "bin/main.dart",
+            "env": {
+                "SERVERPOD_PASSWORD_database": "DFISXA-0uan94TZCwG4MfCXSOTdANwQ6"
+            },
+            "args": [
+                "--apply-migrations"
+            ]
+        }
+    ],
+    "compounds": [
+        {
+            "name": "quiz_pod (full stack)",
+            "configurations": [
+                "quiz_pod_server",
+                "quiz_pod_flutter"
+            ],
+            "presentation": {
+                "order": 1
+            }
+        }
+    ]
+}

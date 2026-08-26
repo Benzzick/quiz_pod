@@ -1,0 +1,25 @@
+emailIdp:
+  - finishRegistration:
+  - login:
+  - startRegistration:
+  - verifyRegistrationCode:
+  - startPasswordReset:
+  - verifyPasswordResetCode:
+  - finishPasswordReset:
+  - hasAccount:
+jwtRefresh:
+  - refreshAccessToken:
+user:
+  - updateUserRole:
+  - getUserProfile:
+greeting:
+  - hello:
+quiz:
+  - addQuiz:
+  - getQuizes:
+  - deleteQuiz:
+  - submitQuiz:
+teacher:
+  - addStudent:
+  - getAllStudents:
+  - getAssignedStudentIds:

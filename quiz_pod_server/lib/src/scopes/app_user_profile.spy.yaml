@@ -1,0 +1,5 @@
+class: AppUserProfile
+table: app_user_profile
+fields:
+  authUserId: UuidValue
+  role: UserScopes

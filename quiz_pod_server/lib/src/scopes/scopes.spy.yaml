@@ -1,0 +1,5 @@
+enum: UserScopes
+serialized: byName
+values:
+  - teacher
+  - student

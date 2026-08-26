@@ -1,0 +1,6 @@
+# quiz_result.spy.yaml
+class: QuizResult
+fields:
+  quizId: int
+  totalQuestions: int
+  score: int

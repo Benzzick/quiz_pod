@@ -1,0 +1,45 @@
+name: Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    env:
+      VERSION: '3.4.12'
+      SERVERPOD_PASSWORD_database: 'rFJmx5zAq4mT49FXuoFLGwSomu2VQ1Jb'
+      SERVERPOD_PASSWORD_redis: 'RvnVHXTl3VWNeTwXGO84WVxxVMM8aK2k'
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.32.8'
+
+      - name: Start containers
+        working-directory: quiz_pod_server
+        run: docker compose up --quiet-pull --build -d
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Install Serverpod CLI
+        run: dart pub global activate serverpod_cli $VERSION
+
+      - name: Run Serverpod generator
+        working-directory: quiz_pod_server
+        run: serverpod generate
+
+      - name: Run tests
+        working-directory: quiz_pod_server
+        run: dart test
+
+      - name: Stop containers
+        if: always()
+        working-directory: quiz_pod_server
+        run: docker compose down -v

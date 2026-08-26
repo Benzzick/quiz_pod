@@ -1,0 +1,11 @@
+name: _
+publish_to: none
+
+environment:
+  sdk: '^3.8.0'
+
+workspace:
+  - quiz_pod_client
+  - quiz_pod_server
+  - quiz_pod_flutter
+

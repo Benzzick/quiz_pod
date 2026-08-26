@@ -1,0 +1,44 @@
+services:
+  # Development services
+  postgres:
+    image: pgvector/pgvector:pg16
+    ports:
+      - "8090:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_DB: quiz_pod
+      POSTGRES_PASSWORD: "DFISXA-0uan94TZCwG4MfCXSOTdANwQ6"
+    volumes:
+      - quiz_pod_data:/var/lib/postgresql/data
+
+  redis:
+    image: redis:6.2.6
+    ports:
+      - "8091:6379"
+    command: redis-server --requirepass "WejxmCvzwp4srKC1uoKPW2WfcobXoz7o"
+    environment:
+      - REDIS_REPLICATION_MODE=master
+
+  # Test services
+  postgres_test:
+    image: pgvector/pgvector:pg16
+    ports:
+      - "9090:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_DB: quiz_pod_test
+      POSTGRES_PASSWORD: "rFJmx5zAq4mT49FXuoFLGwSomu2VQ1Jb"
+    volumes:
+      - quiz_pod_test_data:/var/lib/postgresql/data
+
+  redis_test:
+    image: redis:6.2.6
+    ports:
+      - "9091:6379"
+    command: redis-server --requirepass "RvnVHXTl3VWNeTwXGO84WVxxVMM8aK2k"
+    environment:
+      - REDIS_REPLICATION_MODE=master
+
+volumes:
+  quiz_pod_data:
+  quiz_pod_test_data:
