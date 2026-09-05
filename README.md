@@ -2,8 +2,6 @@
 
 *A beginner-friendly walkthrough of creating your first Serverpod project, understanding the project structure, and building your first endpoint.*
 
-This is Part 1 of a series where we'll also be contributing beginner-friendly updates to the [official Serverpod docs](https://docs.serverpod.dev/) as we go.
-
 ---
 
 ## Prerequisites
@@ -450,4 +448,4 @@ You're now adding, deleting, and fetching todos through a real Serverpod endpoin
 
 ![todo_endpoint.dart file](images/12-todo-chrome-screenshot.jpeg)
 
-> **Remember:** because `todos` lives in memory on the server, restarting the server (`dart bin/main.dart --apply-migrations`) will clear the list. That's expected for now — we'll fix it by persisting todos to the database in Part 3.
+> **Remember:** because `todos` lives in memory on the server, restarting the server (`dart bin/main.dart --apply-migrations`) will clear the list. That's expected for now — we'll fix it by persisting todos to the database.
